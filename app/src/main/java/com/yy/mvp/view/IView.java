@@ -3,7 +3,7 @@ package com.yy.mvp.view;
 import com.yy.mvp.bean.User;
 
 /**
- * 视图层接口（视图逻辑）
+ * IView接口：定义视图逻辑
  */
 public interface IView {
     /**

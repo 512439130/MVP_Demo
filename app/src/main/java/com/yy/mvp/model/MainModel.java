@@ -5,6 +5,11 @@ import android.os.Looper;
 
 import com.yy.mvp.bean.User;
 
+/**
+ * IModel实现类：业务逻辑实现和编写
+ * Model层无View层和Presenter的引用，解耦
+ */
+
 public class MainModel implements IModel{
     @Override
     public void login(String user, String pass, Callback callback) {

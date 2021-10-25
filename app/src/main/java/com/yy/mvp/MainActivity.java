@@ -15,7 +15,8 @@ import com.yy.mvp.presenter.MainPresenter;
 import com.yy.mvp.view.IView;
 
 /**
- * Mvp Demo
+ * MVP Demo
+ * View层（视图层）只关心View展示，用户屏幕事件，无业务逻辑，解耦
  */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener, IView {
     private EditText etUser;

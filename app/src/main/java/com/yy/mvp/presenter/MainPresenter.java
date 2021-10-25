@@ -7,14 +7,17 @@ import com.yy.mvp.bean.User;
 import com.yy.mvp.view.IView;
 
 /**
- * Presenter实现类
+ * Presenter实现类 
+ * 1.（视图逻辑层）的事件向（业务逻辑层）传递
+ * 2.（业务逻辑层）执行过程中，P层调用控制视图层视图逻辑
+ * Presenter只引用Model层和View层的接口，解耦
  */
 public class MainPresenter implements IPresenter, Callback{
-    private IModel mainModel;
-    private IView mainView;
+    private final IModel mainModel;
+    private final IView mainView;
 
     public MainPresenter(IView view){
-        mainModel = new MainModel();
+        this.mainModel = new MainModel();
         this.mainView = view;
     }
 
