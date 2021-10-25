@@ -12,13 +12,14 @@ import com.yy.mvp.view.IView;
  * 2.（业务逻辑层）执行过程中，P层调用控制视图层视图逻辑
  * Presenter只引用Model层和View层的接口，解耦
  */
-public class MainPresenter implements IPresenter, Callback{
+public class MainPresenter<T> implements IPresenter, Callback {
     private final IModel mainModel;
-    private final IView mainView;
+    private final IView<IPresenter> mainView;
 
-    public MainPresenter(IView view){
+    public MainPresenter(IView<IPresenter> view) {
         this.mainModel = new MainModel();
         this.mainView = view;
+        this.mainView.setPresenter(this);
     }
 
     @Override

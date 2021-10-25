@@ -18,7 +18,7 @@ import com.yy.mvp.view.IView;
  * MVP Demo
  * View层（视图层）只关心View展示，用户屏幕事件，无业务逻辑，解耦
  */
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, IView {
+public class MainActivity<T> extends AppCompatActivity implements View.OnClickListener, IView<IPresenter> {
     private EditText etUser;
     private EditText etPass;
     private Button btnLogin;
@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mainPresenter = new MainPresenter(this);
         initView();
     }
 
@@ -53,6 +52,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String pass = etPass.getText().toString().trim();
         mainPresenter.login(user,pass);
     }
+
+
+    @Override
+    public void setPresenter(IPresenter presenter) {
+        this.mainPresenter = presenter;
+    }
+
 
     @Override
     public void showProgressDialog() {
@@ -82,4 +88,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void showMessage(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
+
 }

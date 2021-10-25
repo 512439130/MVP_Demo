@@ -1,11 +1,13 @@
 package com.yy.mvp.view;
 
+import com.yy.mvp.base.BaseIView;
 import com.yy.mvp.bean.User;
 
 /**
  * IView接口：定义视图逻辑
  */
-public interface IView {
+public interface IView<T> extends BaseIView<T> {
+
     /**
      * 显示dialog
      */
